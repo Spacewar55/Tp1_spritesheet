@@ -160,7 +160,7 @@ function life(){
         document.getElementById("fond").style.animation = "none";
         imgsprite.style.animation = "none";
         alert("Vous avez perdu, votre score est de "+ compteur);
-        recommencer = confirm("Voulez vous recommencez?");
+        // recommencer = confirm("Voulez vous recommencez?");
         // clearInterval(creaOBJ);
 
         // for (let index = 0; index < document.getElementsByClassName("obj"); index++) {
