@@ -1,0 +1,33 @@
+@keyframes face-forward
+{
+  100% {background-position: 0px 0px; }
+}
+
+/*FOND*/
+@keyframes roll-along-right
+{
+  0% {background-position: 0 0; }
+  100% {background-position: -2040px 0px; }
+}
+
+/*SPRITESHEET*/
+@keyframes walk-right
+{
+  0% {background-position: 0px 0px; }
+  100% {background-position: -864px 0px; }
+}
+
+.piece, .billet, .bombe{
+  position: fixed;
+  top: 11vh;
+  right: -1vw;
+  transform: translateY(0);
+  animation: moove 3s linear forwards;
+  font-size: 3rem;
+}
+
+@keyframes moove {
+  to {
+    transform: translateX(-105vw);
+  }
+}

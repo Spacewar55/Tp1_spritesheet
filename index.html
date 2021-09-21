@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tp1</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <script src="js/global.js"></script>
+</head>
+
+<body id="fond" onload="afficherQuitter(); demandeNom()">
+    <nav>
+        <div id="left">
+            <h1>Sonic's run</h1>
+            <ul class="menu">
+                <li class="deroulant"><a href="#">Jeu</a>
+                    <ul class="sous-menu">
+                        <li id="recommencer"><a href="#">Recommencer</a></li>
+                        <li id="quitter"><a href="#">Quitter</a></li>
+                    </ul>
+                </li>
+                <li class="deroulant"><a href="#">Paramètre</a>
+                    <ul class="sous-menu">
+                        <li class="deroulant"><a href="#">Background</a>
+                            <ul class="sous-menu">
+                                <li><a href="#" onclick="premier_fond()">Fond1</a></li>
+                                <li><a href="#" onclick="premier_fond()">Fond2</a></li>
+                                <li><a href="#" onclick="premier_fond()">Fond3</a></li>
+                            </ul>
+                        </li>
+                        <li class="deroulant"><a href="#">Police liens</a>
+                            <ul class="sous-menu">
+                                <li><a href="#" onclick="texte_taille(12)">Taille1</a></li>
+                                <li><a href="#" onclick="texte_taille(16)">Taille2</a></li>
+                                <li><a href="#" onclick="texte_taille(20)">Taille3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li id="regle"><a href="#" onclick="afficherRegles()">?</a></li>
+            </ul>
+        </div>
+        <div id="nom">
+        </div>        
+        <div id="right">
+            <div class="life"></div>
+            <div class="score"></div>
+        </div>
+    </nav>
+    <div id="jeu">
+    </div>
+</body>
+
+</html>

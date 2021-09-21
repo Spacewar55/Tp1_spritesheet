@@ -1,0 +1,114 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  position: absolute;
+  display: block;
+  background: url(../images/6.png);
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  padding-left: 5%;
+}
+
+/*General*/
+nav {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Helvetica, Tahoma;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 1em 2em;
+  color: blue;
+}
+
+/*1er niveau*/
+nav .menu {
+  display: flex;
+  /* justify-content:center; */
+}
+
+/*Tous les li*/
+.deroulant {
+  position: relative;
+}
+
+/*sous-menus*/
+.deroulant:hover>.sous-menu {
+  display: flex !important;
+  background-color: #60a0e0;
+}
+
+/*2e niveau*/
+.sous-menu {
+  display: none !important;
+  flex-flow: column wrap;
+  min-width: 110px;
+  position: absolute;
+  background: dodgerblue;
+  z-index: 99;
+  margin-top: -5px;
+}
+
+.sous-menu a {
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.sous-menu a:hover {
+  background-color: #CCCCCC;
+  transition: 0.5s;
+}
+
+/*3e niveau*/
+.sous-menu .sous-menu {
+  top: 0px;
+  left: 100%;
+  background-color: cornflowerblue !important;
+}
+
+#jeu{
+  display: block;
+  width: 100%;
+  height: 90vh;
+  position: relative;
+}
+
+#sonic {
+  position: absolute;
+  bottom: 15px;
+  left: 120px;
+}
+/*format mobile*/
+@media only screen and (max-width: 550px) {
+
+  .menu,
+  nav {
+    flex-flow: column wrap;
+  }
+
+  .sous-menu {
+    position: static;
+  }
+
+  .sous-menu a {
+    text-align: center;
+  }
+}
