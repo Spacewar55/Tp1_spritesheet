@@ -4,7 +4,7 @@ var imgsprite;
 var spritesheet = new Image();
 let nbLife = 4;
 let strLife = "";
-spritesheet.src = "images/bonhomme.png";
+spritesheet.src = "images/courseSonic.png";
 
 window.addEventListener("load", function afficherSprite() {
     //Création du canvas et de sonic
@@ -25,11 +25,7 @@ function texte_taille(taille) {
 }
 
 function fond_jeu() {
-    var liElement = document.getElementsByTagName('li');
-    for (var i = 0; i < liElement.length; i++) {
-        liElement[i].style.backgroundImage = "url('../images/neige.png)";
-    }
-    //document.body.style.backgroundImage = "url('../images/neige.png)";
+    document.body.style.backgroundImage = "url('../images/foret.jpg)";
 }
 
 function afficherQuitter() {
