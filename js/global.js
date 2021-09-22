@@ -4,7 +4,7 @@ var imgsprite;
 var spritesheet = new Image();
 let nbLife = 4;
 let strLife = "";
-spritesheet.src = "images/courseSonic.png";
+spritesheet.src = "images/bonhomme.png";
 
 window.addEventListener("load", function afficherSprite() {
     //Création du canvas et de sonic
@@ -24,8 +24,8 @@ function texte_taille(taille) {
     }
 }
 
-function fond_jeu() {
-    document.body.style.backgroundImage = "url('../images/foret.jpg)";
+function fond_jeu(nomImage) {
+    document.body.style.backgroundImage = "url('images/"+ nomImage +".jpg')";
 }
 
 function afficherQuitter() {
