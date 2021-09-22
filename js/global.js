@@ -24,6 +24,14 @@ function texte_taille(taille) {
     }
 }
 
+function fond_jeu() {
+    var liElement = document.getElementsByTagName('li');
+    for (var i = 0; i < liElement.length; i++) {
+        liElement[i].style.backgroundImage = "url('../images/neige.png)";
+    }
+    //document.body.style.backgroundImage = "url('../images/neige.png)";
+}
+
 function afficherQuitter() {
     document.getElementById("quitter").addEventListener('click', function () {
         if (confirm("Es-tu certains de vouloir quitter?"))
@@ -157,17 +165,8 @@ function life(){
         strLife = strLife + " 💛 ";
     }  
     if (nbLife == 0) {
-        document.getElementById("fond").style.animation = "none";
-        imgsprite.style.animation = "none";
+        window.cancelAnimationFrame(jeu);
         alert("Vous avez perdu, votre score est de "+ compteur);
-        // recommencer = confirm("Voulez vous recommencez?");
-        // clearInterval(creaOBJ);
-
-        // for (let index = 0; index < document.getElementsByClassName("obj"); index++) {
-
-        //     const element = document.getElementsByClassName("obj")[index];
-        //     element.remove();
-        // }
     }
     document.getElementsByClassName("life")[0].innerHTML = strLife;
 }
