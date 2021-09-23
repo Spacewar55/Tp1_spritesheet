@@ -20,12 +20,18 @@ window.addEventListener("load", function afficherSprite() {
 function texte_taille(taille) {
     var liElement = document.getElementsByTagName('li');
     for (var i = 0; i < liElement.length; i++) {
-        liElement[i].style.fontSize = taille+"px";
+        liElement[i].style.fontSize = taille + "px";
     }
 }
 
 function fond_jeu(nomImage) {
-    document.body.style.backgroundImage = "url('images/"+ nomImage +".jpg')";
+    document.body.style.backgroundImage = "url('images/" + nomImage + ".jpg')";
+}
+
+function afficherRecommencer() {
+    document.getElementById("recommencer").addEventListener('click', function () {
+        location.reload();
+    });
 }
 
 function afficherQuitter() {
@@ -38,11 +44,11 @@ function afficherQuitter() {
 function afficherRegles() {
     document.getElementById("regle").addEventListener('click', function () {
         alert(
-            "Voici les règles : \n"+
-            "Le but du jeu est de toucher les pièces pour gagner 1 point et les billets pour gagner 3 points \n"+
-            "Attention toucher une bombe vous fait perdre 1 vie et 1 point \n"+
-            "Au bout de 3 vie perdue la partie est terminée \n"+
-            "Pour commencer à jouer appuyé sur la touche D \n"+
+            "Voici les règles : \n" +
+            "Le but du jeu est de toucher les pièces pour gagner 1 point et les billets pour gagner 3 points \n" +
+            "Attention toucher une bombe vous fait perdre 1 vie et 1 point \n" +
+            "Au bout de 3 vie perdue la partie est terminée \n" +
+            "Pour commencer à jouer appuyé sur la touche D \n" +
             "Bonne chance et bon jeu 😉"
         );
     });
@@ -53,23 +59,19 @@ function demandeNom() {
     let person = prompt("Entrer votre nom :");
     if (person == null || person == "") {
         window.alert("Veuillez entrer votre nom");
-    }
-    else
-    {
+    } else {
         text = "Bienvenue " + person;
     }
 
     document.getElementById("nom").innerHTML = text;
 }
 
-addEventListener('keydown', function(event)
-{
+addEventListener('keydown', function (event) {
     imgsprite = document.getElementById("sonic");
-    var key_press=String.fromCharCode(event.keyCode);
-    if (key_press=="D")
-    {
+    var key_press = String.fromCharCode(event.keyCode);
+    if (key_press == "D") {
         imgsprite.style.animation = "walk-right 0.9s steps(8) infinite";
-        document.getElementById("fond").style.animation="roll-along-right linear 15.0s infinite";
+        document.getElementById("fond").style.animation = "roll-along-right linear 15.0s infinite";
         drop();
     }
 });
@@ -82,7 +84,7 @@ function createPiece() {
     piece.style.animationDuration = Math.random() * 2 + 3 + "s";
     piece.innerText = '🪙';
 
-    piece.addEventListener('click', () =>{
+    piece.addEventListener('click', () => {
         toucher(1);
         piece.remove();
     })
@@ -101,7 +103,7 @@ function createBillet() {
     billet.style.animationDuration = Math.random() * 2 + 3 + "s";
     billet.innerText = '💵';
 
-    billet.addEventListener('click', () =>{
+    billet.addEventListener('click', () => {
         toucher(3);
         billet.remove();
     })
@@ -120,7 +122,7 @@ function createBomb() {
     bombe.style.animationDuration = Math.random() * 2 + 3 + "s";
     bombe.innerText = '💣';
 
-    bombe.addEventListener('click', () =>{
+    bombe.addEventListener('click', () => {
         toucher(-1);
         bombe.remove();
     })
@@ -131,38 +133,39 @@ function createBomb() {
     }, 5000);
 }
 
-function drop(){
-    const creaOBJ = setInterval(()=>{
+function drop() {
+    const creaOBJ = setInterval(() => {
         let rand = Math.random() * 100
         if (rand <= 50) {
             createPiece()
-        }
-        else if (rand > 50 && rand <= 80 ){
+        } else if (rand > 50 && rand <= 80) {
             createBillet()
-        }
-        else {
+        } else {
             createBomb()
         }
     }, 1000);
 }
 
-function toucher(nbPoint){
-    compteur=compteur+nbPoint;
+function toucher(nbPoint) {
+    compteur = compteur + nbPoint;
     document.getElementsByClassName("score").innerHTML = compteur;
     if (nbPoint == -1) {
         life();
     }
 }
 
-function life(){
+function life() {
     nbLife = nbLife - 1;
     strLife = "";
     for (let index = 0; index < nbLife; index++) {
         strLife = strLife + " 💛 ";
-    }  
-    if (nbLife == 0) {
-        window.cancelAnimationFrame(jeu);
-        alert("Vous avez perdu, votre score est de "+ compteur);
     }
+    if (nbLife == 0) {
+        alert(
+            "Vous avez perdu, votre score est de " + compteur + "\n" +
+            "Pour rejouer cliquez sur recommencer dans le menu Jeu"
+        );
+    }
+
     document.getElementsByClassName("life")[0].innerHTML = strLife;
 }

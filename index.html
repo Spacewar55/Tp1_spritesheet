@@ -9,15 +9,15 @@
     <script src="js/global.js"></script>
 </head>
 
-<body id="fond" onload="afficherQuitter(); demandeNom()">
+<body id="fond" onload="demandeNom()">
     <nav>
         <div id="left">
             <h1>Sonic's run</h1>
             <ul class="menu">
                 <li class="deroulant"><a href="#">Jeu</a>
                     <ul class="sous-menu">
-                        <li id="recommencer"><a href="#">Recommencer</a></li>
-                        <li id="quitter"><a href="#">Quitter</a></li>
+                        <li id="recommencer"><a href="#" onclick="afficherRecommencer()">Recommencer</a></li>
+                        <li id="quitter"><a href="#" onclick="afficherQuitter()">Quitter</a></li>
                     </ul>
                 </li>
                 <li class="deroulant"><a href="#">Paramètre</a>
